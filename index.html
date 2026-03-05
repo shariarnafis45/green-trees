@@ -34,6 +34,7 @@
   </head>
   <body>
     <main>
+        
       <section class="py-12">
         <h2 class="text-center text-4xl font-bold text-[#15803D]">
           Choose Your Trees
@@ -44,22 +45,23 @@
             <h2 class="text-xl font-semibold">Categories</h2>
             <div id="catagories-container" class="mt-4 space-y-3">
               <button
-                class="btn btn-outline btn-success justify-start hover:text-white w-full active"
+              id="all-tree-btn"
+                onclick="allTreeBtn()"
+                class="btn btn-outline justify-start  w-full active catagory-btn"
               >
                 All Trees
               </button>
             </div>
           </div>
           <!-- product Area -->
-          <div class="col-span-8 text-center">
-            
-            <div id="product-card-container" class="p-10 grid grid-cols-3 gap-8">
+          <div class="col-span-8  text-center">
+            <!-- Spinner -->
+              <div class="flex  justify-center items-center mt-50 hidden" id="spinner">
+                  <span class="loading loading-dots loading-xl"></span>
+              </div>
               
-              
-              
-            
-              
-              
+            <div id="product-card-container" class="p-10 grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+                <!--card autometically load from server   -->
             </div>
           </div>
           <div class="col-span-2">
