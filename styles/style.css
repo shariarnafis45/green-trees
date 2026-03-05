@@ -1,0 +1,10 @@
+*{
+    font-family: "Poppins", sans-serif;
+}
+
+@import "tailwindcss";
+
+.active {
+    background-color:   #15803D;
+    color: white;
+}
