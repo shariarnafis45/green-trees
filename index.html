@@ -34,7 +34,6 @@
   </head>
   <body>
     <main>
-        
       <section class="py-12">
         <h2 class="text-center text-4xl font-bold text-[#15803D]">
           Choose Your Trees
@@ -45,29 +44,48 @@
             <h2 class="text-xl font-semibold">Categories</h2>
             <div id="catagories-container" class="mt-4 space-y-3">
               <button
-              id="all-tree-btn"
+                id="all-tree-btn"
                 onclick="allTreeBtn()"
-                class="btn btn-outline justify-start  w-full active catagory-btn"
+                class="btn btn-outline justify-start w-full active catagory-btn"
               >
                 All Trees
               </button>
             </div>
           </div>
           <!-- product Area -->
-          <div class="col-span-8  text-center">
+          <div class="col-span-8 text-center">
             <!-- Spinner -->
-              <div class="flex  justify-center items-center mt-50 hidden" id="spinner">
-                  <span class="loading loading-dots loading-xl"></span>
-              </div>
-              
-            <div id="product-card-container" class="p-10 grid lg:grid-cols-3 md:grid-cols-2 gap-8">
-                <!--card autometically load from server   -->
+            <div
+              class="flex justify-center items-center mt-50 hidden"
+              id="spinner"
+            >
+              <span class="loading loading-dots loading-xl"></span>
+            </div>
+
+            <div
+              id="product-card-container"
+              class="p-10 grid lg:grid-cols-3 md:grid-cols-2 gap-8"
+            >
+              <!--card autometically load from server   -->
             </div>
           </div>
           <div class="col-span-2">
             <h2>Your Cart</h2>
           </div>
         </div>
+      </section>
+
+      <!-- Modal -->
+      <section class="">
+        <dialog id="productModal" class="modal modal-bottom sm:modal-middle">
+          <div class="modal-box">
+            <!-- Modal UI -->
+            <div id="modal-content" class=" space-y-2.5">
+              
+            </div>
+            
+          </div>
+        </dialog>
       </section>
     </main>
 
