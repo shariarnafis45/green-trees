@@ -37,7 +37,7 @@ const showDetailsModal = async (id) => {
                 while its sweet fruits are rich in vitamins and minerals.
               </p>
               <div class="flex justify-between items-center mt-3">
-                  <p class="font-bold text-2xl text-[#15803D]">&#2547 500 </p>
+                  <p class="font-bold text-2xl text-[#15803D]">&#2547 ${data.plants.price} </p>
                   <button onclick="addCart('${data.plants.id}', '${data.plants.name}', '${data.plants.price}')" class="btn active rounded-full ">Add To Cart</button>
               </div>
   `;
