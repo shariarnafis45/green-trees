@@ -118,7 +118,7 @@ const displayAllTrees = (trees) => {
                     </div>
                   </div>
                   <div class="card-actions justify-end">
-                    <button class="btn active rounded-full w-full mx-auto mt-2.5">Add To Cart</button>
+                    <button onclick="addCart('${tree.id}', '${tree.name}', '${tree.price}')" class="btn active rounded-full w-full mx-auto mt-2.5">Add To Cart</button>
                   </div>
                 </div>
               </div>
@@ -160,5 +160,45 @@ const allTreeBtn = () => {
   loadAllTrees();
 };
 
+const addCart = (id, name, price) => {
+  const cardContainer = document.getElementById("cart-product-container");
+  let intotalAmount = document.getElementById("intotal-amount");
+  // check card ase kina
+  const existCard = document.querySelector(`[data-id="${id}"]`);
+  if (existCard) {
+    const quantity = existCard.querySelector(".quantity");
+    const updatedQtn = Number(quantity.innerText) + 1;
+    quantity.innerText = updatedQtn;
+    const total = existCard.parentNode.querySelector(".total-price");
+    total.innerText = price * updatedQtn;
+    intotalAmount.innerText = Number(intotalAmount.innerText) + Number(price);
+    return;
+  }
+  const cartProductcard = document.createElement("div");
+  cartProductcard.classList.add("bg-green-100", "p-4", "rounded-md", "mt-3");
+  cartProductcard.innerHTML = `
+        <div id="cart-product-card-${id}">
+          <div data-id="${id}"  class="flex justify-between ">
+            <div>
+              <h2 class=" font-semibold">${name}</h2>
+              <p class="text-[0.8rem] mt-1"><span>&#2547 ${price}</span> X <span class="quantity">1</span></p>
+            </div>
+            <button onclick="removecard('cart-product-card-${id}')" class="btn btn-ghost rounded-full"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <p class="text-xl font-semibold mt-3 text-right">&#2547 <span class="total-price">${price}</span></p>
+        </div>
+  `;
+  cardContainer.append(cartProductcard);
+  intotalAmount.innerText = Number(intotalAmount.innerText) + Number(price);
+};
+
+// Remove cart Card
+const removecard = (id) => {
+  const card = document.getElementById(id);
+  let intotalAmount = document.getElementById("intotal-amount");
+  const productTotal = Number(card.querySelector(".total-price").innerText);
+  intotalAmount.innerText = Number(intotalAmount.innerText) - productTotal;
+  card.parentNode.remove();
+};
 loadAllTrees();
 loadCatagories();
